@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+
 public class App {
 	/*
 	 * 最小可用id的暴力解法
