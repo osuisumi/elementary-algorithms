@@ -1,5 +1,9 @@
 package fun;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * /*
@@ -33,7 +37,7 @@ public class Test {
 		/*int i = Integer.MAX_VALUE;
 		System.out.println(Integer.valueOf(i));*/
 		
-		String comte = "";
+		/*String comte = "";
 		String group = "ISUMI";
 		int cNum = 1;
 		int gNum = 1;
@@ -45,7 +49,32 @@ public class Test {
 		}
 		int cout = cNum%47;
 		int gout = gNum%47;
-		System.out.println(cout == gout?"GO":"STAY");
+		System.out.println(cout == gout?"GO":"STAY");*/
+//		int r = 0;
+//		int der = 200;
+//		int d = 3;
+//		r = der/d;
+//		System.out.println(r);
+//		BigDecimal my = new BigDecimal(34);
+		
+//		BigDecimal all = new BigDecimal(50);
+//		System.out.println(my.compareTo(all));
+		
+//		int a = 1;
+//		int b = 3;
+//		DecimalFormat    df   = new DecimalFormat("######0.00"); 
+//		double result = a*1.0/b*100;
+//		String r =  df.format(result) + "%";
+//		System.out.println(r);
+		
+		List<String> fa = new ArrayList<String>();
+		fa.add("1");
+		fa.add("2");
+		fa.add("3");
+		List<String> sub = new ArrayList<String>();
+		sub.add("1");
+		fa.removeAll(sub);
+		System.out.println(fa.size());
 	}
 	
 	
