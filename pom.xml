@@ -7,9 +7,18 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-core</artifactId>
-			<version>3.0.2</version>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.2.1</version>
 		</dependency>
+
+
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>oschinaMavenThirdparty</id>
+			<name>oschinaMavenThirdparty</name>
+			<url>http://maven.oschina.net/content/repositories/thirdparty/</url>
+		</repository>
+	</repositories>
 </project>
