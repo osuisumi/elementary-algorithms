@@ -11,13 +11,6 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.2.1</version>
 		</dependency>
-		
-		<dependency>
-				<groupId>codehelper</groupId>
-			<artifactId>codehelper</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 
 	</dependencies>
 	<repositories>
