@@ -1,6 +1,6 @@
 package chapter1.c1;
 
-public class Node {
+public class Node implements Cloneable{
 	
 	private int key;
 
@@ -51,7 +51,35 @@ public class Node {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + key;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Node other = (Node) obj;
+		if (key != other.key)
+			return false;
+		return true;
+	}
 	
+	public String toString(){
+		return String.valueOf(key);
+	}
+	@Override
+	public Node clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return (Node) super.clone();
+	}
 	
 
 }

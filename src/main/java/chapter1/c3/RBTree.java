@@ -35,12 +35,14 @@ public class RBTree {
 			if(parent.getRight()!=null){
 				insert(parent.getRight(),preIn);
 			}else{
+				//检查结构是否被破坏
 				parent.setRight(preIn);
 			}
 		}else{
 			if(parent.getLeft()!=null){
 				insert(parent.getLeft(),preIn);
 			}else{
+				//检查结构是否被破坏
 				parent.setLeft(preIn);
 			}
 		}

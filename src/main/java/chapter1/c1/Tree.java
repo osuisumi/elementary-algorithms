@@ -1,5 +1,9 @@
 package chapter1.c1;
 
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
+
 import utils.InputUtils;
 
 public class Tree {
@@ -68,6 +72,78 @@ public class Tree {
 	
 	public boolean contain(int key){
 		return contain(root,key);
+	}
+	
+	public Node findMin(){
+		return findMin(root);
+	}
+	
+	public Node findMax(){
+		return findMax(root);
+	}
+	
+	public List<Node> preOrder(){
+		ArrayList<Node> result = new ArrayList<Node>();
+		preOrder(root,result);
+		return result;
+	}
+	
+	public List<Node> inOrder(){
+		ArrayList<Node> result = new ArrayList<Node>();
+		inorder(root, result);
+		return result;
+	}
+	
+	public List<Node> lastOrder(){
+		ArrayList<Node> result = new ArrayList<Node>();
+		lastOrder(root, result);
+		return result;
+	}
+	
+	private void preOrder(Node node,ArrayList<Node> result){
+		result.add(node);
+		if(node.getLeft()!=null){
+			preOrder(node.getLeft(),result);
+		}
+		if(node.getRight()!=null){
+			preOrder(node.getRight(),result);
+		}
+	}
+	
+	private void inorder(Node node,ArrayList<Node> result){
+		if(node.getLeft()!=null){
+			inorder(node.getLeft(),result);
+		}
+		result.add(node);
+		if(node.getRight()!=null){
+			inorder(node.getRight(),result);
+		}
+	}
+	
+	private void lastOrder(Node node,ArrayList<Node> result){
+		if(node.getLeft()!=null){
+			lastOrder(node.getLeft(),result);
+		}
+		if(node.getRight()!=null){
+			lastOrder(node.getRight(),result);
+		}
+		result.add(node);
+	}
+	
+	private Node findMin(Node node){
+		if(node.getLeft()!=null){
+			return findMin(node.getLeft());
+		}else{
+			return node;
+		}
+	}
+	
+	private Node findMax(Node node){
+		if(node.getRight()!=null){
+			return findMax(node.getRight());
+		}else{
+			return node;
+		}
 	}
 	
 	private Node get(Node node,int key){
