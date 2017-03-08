@@ -11,7 +11,6 @@ public class RecreateByFM {
 	
 	@Test
 	public void test(){
-		Tree root = new Tree(3, null);
 		
 	}
 	

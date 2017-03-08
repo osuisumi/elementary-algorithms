@@ -7,22 +7,23 @@ public class FirstHead {
 	@Test
 	public void test1(){
 		Tree tree  = Tree.defaultTree();
-		firstHead(tree);
+		firstHead(tree.getRoot());
 		
 	}
 	
 	/*
-	 * 如果树为空，返回
-	 * 否则先访问key，然后遍历左子树，最后遍历右子树
+	 * 根左右
+	 * 
 	 */
 	
-	public void firstHead(Tree tree){
-		if(tree == null){
-			return;
+	public void firstHead(Node node){
+		System.out.println(node.getKey());
+		if(node.getLeft()!=null){
+			firstHead(node.getLeft());
 		}
-		System.out.println(tree.getKey());
-		firstHead(tree.getLeft());
-		firstHead(tree.getRight());
+		if(node.getRight()!=null){
+			firstHead(node.getRight());
+		}
 	}
 
 }

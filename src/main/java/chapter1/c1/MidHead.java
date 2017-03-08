@@ -7,23 +7,21 @@ public class MidHead {
 	@Test
 	public void test1(){
 		Tree tree  = Tree.defaultTree();
-		mid(tree);
+		mid(tree.getRoot());
 		
 	}
 	
 	/*
-	 * 如果为空，返回
-	 * 否则先遍历左子树，然后访问key，然后遍历右子树
+	 * 左跟右
 	 */
-	public void mid(Tree tree){
-		if(tree == null){
-			return;
+	public void mid(Node node){
+		if(node.getLeft()!=null){
+			mid(node.getLeft());
 		}
-		if(tree.getLeft()!=null){
-			mid(tree.getLeft());
+		System.out.println(node.getKey());
+		if(node.getRight()!=null){
+			mid(node.getRight());
 		}
-		System.out.print(tree.getKey()+",");
-		mid(tree.getRight());
 	}
 
 }

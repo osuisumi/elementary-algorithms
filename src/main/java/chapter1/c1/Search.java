@@ -7,10 +7,10 @@ public class Search {
 	//look up
 	@Test
 	public void lookup(){
-		System.out.println(lookUp(Tree.defaultTree(),3) == null?"找不到喂":"哎呀，找到啦");
+		
 	}
 	
-	public Tree lookUp(Tree root,int key){
+	public Node lookUp(Node root,int key){
 		if(root ==null){
 			return null;
 		}else if(root.getKey() == key){
@@ -25,11 +25,11 @@ public class Search {
 	@Test
 	public void maxAndmin(){
 		Tree tree = Tree.defaultTree();
-		System.out.println("max is" + max(tree).getKey());
-		System.out.println("min is" + min(tree).getKey());
+		System.out.println("max is" + max(tree.getRoot()).getKey());
+		System.out.println("min is" + min(tree.getRoot()).getKey());
 	}
 	
-	public Tree max(Tree root){
+	public Node max(Node root){
 		if(root.getRight() == null){
 			return root;
 		}else{
@@ -37,7 +37,7 @@ public class Search {
 		}
 	}
 	
-	public Tree min(Tree root){
+	public Node min(Node root){
 		if(root.getLeft() == null){
 			return root;
 		}else{

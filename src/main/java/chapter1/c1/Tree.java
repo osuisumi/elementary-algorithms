@@ -1,81 +1,112 @@
 package chapter1.c1;
 
+import utils.InputUtils;
+
 public class Tree {
+	
+	private Node root;
+	
+	private int nodeNum = 0;
+	
 
-	private int key;
-
-	private Object data;
-
-	private Tree left;
-
-	private Tree right;
-
-	public Tree(int key, Object data) {
-		this.key = key;
-		this.data = data;
+	public Node getRoot() {
+		return root;
 	}
 
-	public int getKey() {
-		return key;
+	public void setRoot(Node root) {
+		this.root = root;
 	}
 
-	public void setKey(int key) {
-		this.key = key;
+	public int getNodeNum() {
+		return nodeNum;
 	}
 
-	public Object getData() {
-		return data;
-	}
-
-	public void setData(Object data) {
-		this.data = data;
-	}
-
-	public Tree getLeft() {
-		return left;
-	}
-
-	public void setLeft(Tree left) {
-		this.left = left;
-	}
-
-	public Tree getRight() {
-		return right;
-	}
-
-	public void setRight(Tree right) {
-		this.right = right;
+	public void setNodeNum(int nodeNum) {
+		this.nodeNum = nodeNum;
 	}
 
 	public void insert(int key, Object data) {
-		if (key == this.key) {
-			this.data = data;
-		}else if(key<this.key){
-			if(this.left == null){
-				Tree l = new Tree(key,data);
-				this.left = l;
+		if(root == null){
+			this.root = new Node(key,data);
+		}else{
+			insert(root,new Node(key,data));
+		}
+		this.nodeNum ++ ;
+	
+	}
+	
+	private void insert(Node parent,Node preIn){
+		if(parent.getKey() == preIn.getKey()){
+			parent.setNum(parent.getNum() +1);
+		}else if(preIn.getKey()>parent.getKey()){
+			if(parent.getRight() == null){
+				parent.setRight(preIn);
 			}else{
-				this.left.insert(key, data);
+				insert(parent.getRight(),preIn);
 			}
 		}else{
-			if(key>this.key){
-				if(this.right == null){
-					Tree r = new Tree(key,data);
-					this.right = r;
-				}else{
-					this.right.insert(key, data);
-				}
+			if(parent.getLeft() == null){
+				parent.setLeft(preIn);
+			}else{
+				insert(parent.getLeft(),preIn);
 			}
 		}
 	}
 	
 	public static Tree defaultTree(){
-		int keys [] = {3,8,10,11,99,0,14,7,55};
-		Tree t = new Tree(3,null);
-		for(int i=1;i<keys.length;i++){
-			t.insert(keys[i], null);
+		Tree tree = new Tree();
+		int  [] defaultN = InputUtils.array(10);
+		for(int i:defaultN){
+			tree.insert(i, i);
 		}
-		return t;
+		return tree;
 	}
-
+	
+	public Node getNode(int key){
+		return get(root,key);
+	}
+	
+	public boolean contain(int key){
+		return contain(root,key);
+	}
+	
+	private Node get(Node node,int key){
+		if(key == node.getKey()){
+			return node;
+		}else if(key<node.getKey()){
+			if(node.getLeft() == null){
+				return null;
+			}else{
+				return get(node.getLeft(),key);
+			}
+		}else{
+			if(node.getRight() == null){
+				return null;
+			}else{
+				return get(node.getRight(),key);
+			}
+		}
+	}
+	
+	private boolean contain(Node node,int key){
+		if(node.getKey() == key){
+			return true;
+		}else if(key<node.getKey()){
+			if(node.getLeft()!=null){
+				return contain(node.getLeft(),key);
+			}else{
+				return false;
+			}
+		}else{
+			if(node.getRight()!=null){
+				return contain(node.getRight(),key);
+			}else{
+				return false;
+			}
+		}
+	}
+	
+	
+	
+	
 }
